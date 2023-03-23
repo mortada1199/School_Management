@@ -35,7 +35,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="email">الايميل</label>
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" value="{{ old('email', 'admin@bloodBanck.com') }}" id="email"
+                                            name="email" value="{{ old('email', 'user@user.com') }}" id="email"
                                             placeholder="Enter Email address">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -71,11 +71,11 @@
                     </div>
 
                     <div class="mt-5 text-center">
-                        <p>© 
+                        <p>©
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> 
-                             Crafted with 
+                            </script>
+                             Crafted with
                              <i class="mdi mdi-heart text-danger"></i>
                               by Athrib
                         </p>

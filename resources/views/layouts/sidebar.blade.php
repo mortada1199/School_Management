@@ -27,7 +27,7 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu"
                 style="
-            
+
                 padding-right: 0;
                 margin-right: 0;">
                 <li class="menu-title">القائمة</li>
@@ -42,7 +42,7 @@
                 {{-- @endif --}}
 
 
-                <li class="menu-title">بنك الدم</li>
+                <li class="menu-title"> نظام إداره المدرسة</li>
 
                 <li>
                     {{-- @if (auth()->user()->employee->unit == 'الادارة' || auth()->user()->employee->unit == 'معمل التجانس' || auth()->user()->employee->unit == 'الاستقبال') --}}
@@ -50,7 +50,7 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-heart-medical"></i>
                         <span>
-                            الدم
+                            الطلبات
                         </span>
                     </a>
                     {{-- @endif --}}
@@ -86,7 +86,7 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
                         <span>
-                            التبرعات
+                            النتائج
                         </span>
                     </a>
                     <ul>
@@ -118,7 +118,7 @@
 
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
-                        <span> الاطفال حديثي الولادة
+                        <span>   الفصول
 
                         </span>
                     </a>
@@ -147,7 +147,7 @@
 
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
-                        <span> الفحوصات الاخرى
+                        <span>  التعاليق
 
                         </span>
                     </a>
@@ -176,7 +176,7 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
                         <span>
-                            الدم الزائد
+                             الإشعارات
                         </span>
                     </a>
                     <ul>
@@ -213,28 +213,9 @@
                     </a>
                 </li> --}}
 
-                <li>
-                    {{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
-                    <a href="{{ route('employees.index') }}">
-                        <i class="uil-users-alt"></i>
-                        <span>
-                            الموظفين
-                        </span>
-                    </a>
-                    {{-- @endif --}}
 
-                </li>
 
-                <li>
-                    {{-- @if (auth()->user()->employee->unit == 'الاستقبال') --}}
-                    <a href="{{ route('viralDiseases.index') }}">
-                        <i class="uil-home-alt"></i>
-                        <span>
-                            الأمراض الفيروسية </span>
-                    </a>
-                    {{-- @endif --}}
 
-                </li>
                 <li>
 
                 <li>
@@ -275,7 +256,7 @@
                                 <span>
                                     تقرير عدم السحب </span></a>
                         </li>
-               
+
                         <li>
                             <a href="{{ route('polcythemiasrReport') }}">
                                 <i class="uil-home-alt"></i>
