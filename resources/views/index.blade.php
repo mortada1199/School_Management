@@ -20,7 +20,7 @@
                         <div id="total-revenue-chart"></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ \App\Models\Order::count() }}</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">2</span></h4>
                         <p class="text-muted mb-0">المرضى</p>
                     </div>
 
@@ -36,7 +36,7 @@
                     </div>
                     <div>
                         <h4 class="mb-1 mt-1"><span
-                                data-plugin="counterup">{{ \App\Models\Donation::where('status', '=', 'الانتظار')->count() }}</span>
+                                data-plugin="counterup">2</span>
                         </h4>
                         <p class="text-muted mb-0"> المتبرعين</p>
                     </div>
@@ -52,7 +52,7 @@
                         <div id="customers-chart"> </div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{\App\Models\Derivative::count()}}</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">10</span></h4>
                         <p class="text-muted mb-0">الخزنة</p>
                     </div>
 
@@ -68,7 +68,7 @@
                         <div id="growth-chart"></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"> <span data-plugin="counterup">{{\App\Models\Exchange::count()}}</span></h4>
+                        <h4 class="mb-1 mt-1"> <span data-plugin="counterup">11</span></h4>
                         <p class="text-muted mb-0">المنصرف</p>
                     </div>
 
@@ -86,7 +86,7 @@
                     </div>
                     <div>
                         <h4 class="mb-1 mt-1"><span
-                                data-plugin="counterup">{{ App\Models\ExternalExchange::count() }}</span></h4>
+                                data-plugin="counterup">12</span></h4>
                         <p class="text-muted mb-0">التبرعات الخارجية</p>
                     </div>
 
@@ -104,7 +104,7 @@
                     </div>
                     <div>
                         <h4 class="mb-1 mt-1"> <span
-                                data-plugin="counterup">{{ App\Models\Order::where('fresh', '=', 1)->count() }}</span></h4>
+                                data-plugin="counterup">12</span></h4>
                         <p class="text-muted mb-0">fresh blood</p>
                     </div>
 
@@ -135,7 +135,7 @@
                     <h4 class="card-title mb-4">احصائيات فصائل الدم</h4>
 
 
-                    <input type="hidden" name="" id="list" value="{{json_encode($list,true)}}">
+{{--                    <input type="hidden" name="" id="list" value="{{json_encode($list,true)}}">--}}
 
                     <div class="mt-3">
                         <div id="sales-analytics-chart" class="apex-charts"   dir="ltr"></div>
@@ -145,7 +145,7 @@
         </div> <!-- end col-->
     </div>
 
-{{-- 
+{{--
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
