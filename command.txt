@@ -1,0 +1,4 @@
+
+## if you want to install   spatie query builder, and you face some  issues please use the command below
+
+composer require spatie/laravel-query-builder:* --ignore-platform-req=ext-gd
