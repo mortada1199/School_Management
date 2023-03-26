@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Grade;
+use App\Models\Chapter;
 use Illuminate\Http\Request;
 
-class GradeController extends Controller
+class ChapterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $grades= Grade::all();
-        return  view('grades.index',compact('grades'));
+        $chapters= Chapter::all();
+        return  view('chapters.index',compact('chapters'));
     }
 
     /**
@@ -36,18 +36,18 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-      $data=  $request->validate(['name'=>'required', 'string','max:255']);
-        Grade::create($data);
+        $data=  $request->validate(['name'=>'required', 'string','max:255']);
+        Chapter::create($data);
         return  redirect()->back()->with('success','تم إنشاء الفصل بنجاح');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Chapter  $chapter
      * @return \Illuminate\Http\Response
      */
-    public function show(Grade $grade)
+    public function show(Chapter $chapter)
     {
         //
     }
@@ -55,36 +55,36 @@ class GradeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Chapter  $chapter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grade $grade)
+    public function edit(Chapter $chapter)
     {
-
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Chapter  $chapter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grade $grade)
+    public function update(Request $request, Chapter $chapter)
     {
-        $grade->udaate(['name'=>$request->name]);
+        $chapter->udaate(['name'=>$request->name]);
         return  redirect()->back()->with('success','تم تعديل الفصل بنجاح');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param  \App\Models\Chapter  $chapter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grade $grade)
+    public function destroy(Chapter $chapter)
     {
-        $grade->delete();
+        $chapter->delete();
         return  redirect()->back()->with('success','تم حذف الفصل بنجاح');
     }
 }

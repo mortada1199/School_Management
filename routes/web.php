@@ -65,7 +65,7 @@ Route::get('clear_cache', function () {
     Route::get('homogeneity/{id}', [HomogeneityController::class, 'create'])->name('homogeneity.create');
     Route::post('homogeneity', [HomogeneityController::class, 'store'])->name('homogeneity.store');
     Route::put('updateStatus/{order}', [OrdersController::class, 'cancel'])->name('updateStatus');
-    Route::resource('orders', OrdersController::class);
+    Route::resource('grades', \App\Http\Controllers\GradeController::class);
     Route::resource('people', PeopleController::class)->only('index');  //done
     Route::resource('doctorTest', DoctorTestsController::class);
     Route::resource('bloodTest', BloodTestsController::class);
