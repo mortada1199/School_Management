@@ -59,7 +59,7 @@
                                         <input type="text" class="form-control @error('phone') is-invalid @enderror"
                                                name="phone" value="{{ old('phone') }}" id="phone"
                                                placeholder="">
-                                        @error('name')
+                                        @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
