@@ -59,24 +59,24 @@
 
                         <li>
                             {{-- @if (auth()->user()->employee->unit == 'الادارة' || auth()->user()->employee->unit == 'معمل التجانس' || auth()->user()->employee->unit == 'الاستقبال') --}}
-                            <a href="{{ route('orders.index') }}">
-                                <i class="uil-telescope"></i>
-                                <span>
-                                    الطلبات
-                                </span>
-                            </a>
+{{--                            <a href="{{ route('orders.index') }}">--}}
+{{--                                <i class="uil-telescope"></i>--}}
+{{--                                <span>--}}
+{{--                                    الطلبات--}}
+{{--                                </span>--}}
+{{--                            </a>--}}
                             {{-- @endif --}}
 
                         </li>
                         {{-- @if (auth()->user()->employee->unit == 'الاستقبال') --}}
-                        <li>
-                            <a href="{{ route('orders.create') }}">
-                                <i class="uil-comment-medical"></i>
-                                <span>
-                                    اضافة طلب
-                                </span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{ route('orders.create') }}">--}}
+{{--                                <i class="uil-comment-medical"></i>--}}
+{{--                                <span>--}}
+{{--                                    اضافة طلب--}}
+{{--                                </span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         {{-- @endif --}}
 
                     </ul>
@@ -124,18 +124,18 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="{{ route('kids.create') }}">
-                                <i class="uil-user"></i>
+                            <a href="{{ route('chapters.create') }}">
+                                <i class="uil-files-landscapes-alt"></i>
                                 <span>
-                                    اضافة طفل
+                                    إنشاء فصل
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('kids.index') }}">
+                            <a href="{{ route('chapters.index') }}">
                                 <i class="uil-files-landscapes-alt"></i>
                                 <span>
-                                    سجل الاطفال
+                                    الفصول
                                 </span>
                             </a>
                         </li>

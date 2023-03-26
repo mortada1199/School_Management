@@ -14,7 +14,8 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        $grades= Grade::all();
+        return  view('chapters.index',compact('grades'));
     }
 
     /**
@@ -35,7 +36,9 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data=  $request->validate(['name'=>'required', 'string','max:255']);
+        Grade::create($data);
+        return  redirect()->back()->with('success','تم إنشاء الفصل بنجاح');
     }
 
     /**
@@ -57,7 +60,7 @@ class GradeController extends Controller
      */
     public function edit(Grade $grade)
     {
-        //
+
     }
 
     /**
@@ -69,7 +72,8 @@ class GradeController extends Controller
      */
     public function update(Request $request, Grade $grade)
     {
-        //
+        $grade->udaate(['name'=>$request->name]);
+        return  redirect()->back()->with('success','تم تعديل الفصل بنجاح');
     }
 
     /**
@@ -80,6 +84,7 @@ class GradeController extends Controller
      */
     public function destroy(Grade $grade)
     {
-        //
+        $grade->delete();
+        return  redirect()->back()->with('success','تم حذف الفصل بنجاح');
     }
 }
