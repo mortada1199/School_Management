@@ -17,8 +17,8 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->foreignId('grade_id');
-            $table->foreignId('user_id');
+            $table->foreignId('grade_id')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->string('email');
             $table->string('password');
             $table->string('age');
