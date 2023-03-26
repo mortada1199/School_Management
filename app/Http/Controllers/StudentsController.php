@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class StudentsController extends Controller
 {
@@ -48,10 +50,36 @@ class StudentsController extends Controller
             'user_id'=>$data['user_id'],
             'grade_id'=>$data['grade_id'],
         ]);
+        $token = $student->createToken('auth_token')->plainTextToken;
 
-        return  response()->json(['success'=>'true','message'=>"user created successfully",'data'=>$student],200);
+
+        return  response()->json(['success'=>'true','message'=>"user created successfully",'data'=>$student,'token'=>$token],200);
     }
 
+
+
+public function login(Request $request)
+{
+
+    $student = Student::where('email', $request['email'])->first();
+    
+if($student != null){
+    if ($request['email']==$student->email && $request['password']==$student->password) {
+        $token = $student->createToken('auth_token')->plainTextToken;
+
+        return Response()->json([
+            'access_token' => $token
+        ]);
+       
+    }
+}
+else{
+    return response()->json([
+        'message' => 'Invalid login details'
+    ], 401);
+}
+    
+}
     /**
      * Store a newly created resource in storage.
      *
