@@ -64,6 +64,12 @@
                                         <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">تسجيل الدخول</button>
                                     </div>
 
+                                    <div class="mt-4 text-right">
+                                        <p class="mb-0"> ليس لديك حساب ؟ <a href="{{ url('register') }}"
+                                                                                     class="fw-medium text-primary">أنشئ حساب جديد</a> </p>
+                                    </div>
+
+
                                 </form>
                             </div>
 
