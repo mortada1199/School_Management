@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 
 class StudentsController extends Controller
 {
@@ -22,9 +23,33 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
 
+
+    protected function create(Request $data)
+    {
+        $data=$data->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'phone'=>['required', 'string','min:10','max:14',"unique:students"],
+            'another_phone'=>['required', 'string','min:10','max:14',"unique:students"],
+            "age"=>['required', 'string',],
+            "user_id"=>['required',],
+            "grade_id"=>['required'],
+
+        ]);
+        $student= Student::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'phone'=>$data['phone'],
+            'another_phone'=>$data['another_phone'],
+            'age'=>$data['age'],
+            'user_id'=>$data['user_id'],
+            'grade_id'=>$data['grade_id'],
+        ]);
+
+        return  response()->json(['success'=>'true','message'=>"user created successfully",'data'=>$student],200);
     }
 
     /**
