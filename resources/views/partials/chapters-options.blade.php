@@ -6,12 +6,13 @@
     <div class="dropdown-menu dropdown-menu-end">
 
 
-
+        <a class="dropdown-item" href="{{route('chapters.edit',$chapter)}}"> <span
+                class="align-middle"> تعديل الفصل </span></a>
 
         <a class="dropdown-item"
            onclick="event.preventDefault(); document.getElementById('profile-activate-{{ $chapter->id }}').submit();"
            href="#">
-            <span class="align-middle"> حذف الطلب</span>
+            <span class="align-middle"> حذف الفصل</span>
         </a>
 
 
