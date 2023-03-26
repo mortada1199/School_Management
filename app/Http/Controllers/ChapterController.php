@@ -60,7 +60,7 @@ class ChapterController extends Controller
      */
     public function edit(Chapter $chapter)
     {
-        //
+        return  view('chapters.edit', compact('chapter'));
     }
 
     /**
@@ -72,7 +72,7 @@ class ChapterController extends Controller
      */
     public function update(Request $request, Chapter $chapter)
     {
-        $chapter->udaate(['name'=>$request->name]);
+        $chapter->update(['name'=>$request->name]);
         return  redirect()->back()->with('success','تم تعديل الفصل بنجاح');
     }
 
