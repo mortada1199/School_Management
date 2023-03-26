@@ -70,7 +70,7 @@
                                         @endif
                                     </td>
 
-                                    <td>@include('partials.grades-options')</td>
+                                    <td>@include('partials.chapters-options')</td>
                                 </tr>
                             @endforeach
 
