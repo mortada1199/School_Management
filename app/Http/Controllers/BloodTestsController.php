@@ -9,6 +9,7 @@ use App\Http\Services\RejectionsServices;
 use App\Models\Kid;
 use App\Models\Polycythemia;
 use Illuminate\Support\Facades\DB;
+use Mpdf\Http\Request;
 
 class BloodTestsController extends Controller
 {
@@ -19,7 +20,6 @@ class BloodTestsController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -29,4 +29,5 @@ class BloodTestsController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
    
+    
 }
