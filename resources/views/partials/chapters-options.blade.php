@@ -8,10 +8,11 @@
 
 
 
-         <a class="dropdown-item"
-         href="#" data-bs-toggle="modal"class="align-middle"
-            data-bs-target="#myModal-block-branch-{{ $chapter->id }}">
-           حذف</a>
+        <a class="dropdown-item"
+           onclick="event.preventDefault(); document.getElementById('profile-activate-{{ $chapter->id }}').submit();"
+           href="#">
+            <span class="align-middle"> حذف الطلب</span>
+        </a>
 
 
     </div>
@@ -21,7 +22,10 @@
 
 
 
-
+<form id="profile-activate-{{ $chapter->id }}" action="{{ route('chapters.destroy', $chapter) }}" method="POST">
+    @csrf
+    @method('DELETE')
+</form>
 <div id="myModal-block-DCT-{{ $chapter->id }}" class="modal fade" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -32,7 +36,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate action="{{ route("chapters.destory",$chapter) }}" method="POST">
+{{--                <form class="needs-validation" novalidate action="{{ route("chapters.destroy,$chapter->id") }}" method="POST">--}}
                     <div class="row">
                         @csrf
                         <div class="col-md-12">

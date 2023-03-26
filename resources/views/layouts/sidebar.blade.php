@@ -92,7 +92,7 @@
                     <ul>
                         <li>
                             {{-- @if (auth()->user()->employee->unit == 'الاستقبال') --}}
-                            <a href="{{ route('donations.create') }}">
+                            <a href="#">
                                 <i class="uil-user-arrows"></i>
                                 <span>
                                     اضافة تبرع
@@ -102,7 +102,7 @@
 
                         </li>
                         <li>
-                            <a href="{{ route('donations.index') }}">
+                            <a href="#">
                                 <i class="uil-files-landscapes-alt"></i>
                                 <span>
                                     سجل التبرعات
@@ -153,7 +153,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="{{ route('investigations.create') }}">
+                            <a href="#">
                                 <i class="uil-user"></i>
                                 <span>
                                     عمل فحص
@@ -161,7 +161,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('investigations.index') }}">
+                            <a href="#">
                                 <i class="uil-files-landscapes-alt"></i>
                                 <span>
                                     سجل الفحوصات
@@ -181,7 +181,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="{{ route('polcythemias.create') }}">
+                            <a href="#">
                                 <i class="uil-heart-rate"></i>
                                 <span>
                                     زيادة الدم
@@ -189,7 +189,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('polcythemias.index') }}">
+                            <a href="#">
                                 <i class="uil-files-landscapes-alt"></i>
                                 <span>
                                     سجل زيادة الدم
@@ -220,7 +220,7 @@
 
                 <li>
                     {{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
-                    <a href="{{ route('filter') }}">
+                    <a href="#">
                         <i class="uil-file"></i>
 
                         <span>
