@@ -30,8 +30,14 @@
                             <thead class="table-light">
                             <tr>
                                 <th>#</th>
+                                <th>الاسم </th>
                                 <th>الفصل </th>
+
                                 <th> تاريخ الإنشاء</th>
+                                <th>  العمر</th>
+                                <th> رقم الهاتف </th>
+                                <th>  الحالة</th>
+
                                 <th> الخبارات</th>
                             </tr>
                             </thead>
@@ -40,14 +46,28 @@
                                 <tr>
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->name ?? '' }}</td>
+                                    <td>{{ $order->chapter->name}}</td>
+
                                     <td>{{ $order->created_at->format('y-m-d') }}</td>
                                     <td>{{$order->age}}</td>
                                     <td>{{$order->phone}}</td>
-                                    <td>{{$order->age}}</td>
+                                    <td>
+                                        @if ($order->status == 'الانتظار')
+                                            <span class="badge bg-soft-warning" style="font-size:small ">الإنتظار</span>
+                                        @elseif($order->status == 'مكتمل')
+                                            <span class="badge bg-soft-success" style="font-size:small ">مكتمل</span>
+                                        @elseif($orderstatus == 'مرفوض')
+                                            <span class="badge bg-soft-danger" style="font-size:small ">
+                                                    مرفوض
+                                                </span>
+                                        @elseif($order->status == 'ملغي')
+                                            <span class="badge bg-soft-secondary" style="font-size:small ">ملغي</span>
+                                        @endif
+                                    </td>
 
 
 
-                                    <td>@include('partials.chapters-options')</td>
+                                    <td>@include('partials.orders-options')</td>
                                 </tr>
                             @endforeach
 

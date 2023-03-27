@@ -58,15 +58,12 @@
                     <ul>
 
                         <li>
-                            {{-- @if (auth()->user()->employee->unit == 'الادارة' || auth()->user()->employee->unit == 'معمل التجانس' || auth()->user()->employee->unit == 'الاستقبال') --}}
-{{--                            <a href="{{ route('orders.index') }}">--}}
-{{--                                <i class="uil-telescope"></i>--}}
-{{--                                <span>--}}
-{{--                                    الطلبات--}}
-{{--                                </span>--}}
-{{--                            </a>--}}
-                            {{-- @endif --}}
-
+                            <a href="{{ route('orders.index') }}">
+                                <i class="uil-files-landscapes-alt"></i>
+                                <span>
+                                    كل الطلبات
+                                </span>
+                            </a>
                         </li>
                         {{-- @if (auth()->user()->employee->unit == 'الاستقبال') --}}
 {{--                        <li>--}}
