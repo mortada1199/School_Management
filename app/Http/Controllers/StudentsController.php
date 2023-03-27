@@ -39,6 +39,7 @@ class StudentsController extends Controller
             "age" => ['required', 'string',],
             "user_id" => ['required',],
             "grade_id" => ['required'],
+            'chapter_id'=>['required','exists:chapters,id'],
 
         ]);
         $student = Student::create([
@@ -50,6 +51,7 @@ class StudentsController extends Controller
             'age' => $data['age'],
             'user_id' => $data['user_id'],
             'grade_id' => $data['grade_id'],
+            'chapter_id' => $data['chapter_id']
         ]);
         $token = $student->createToken('auth_token')->plainTextToken;
 
@@ -79,7 +81,7 @@ class StudentsController extends Controller
             ], 401);
         }
     }
-   
+
     public function Comment(Request $data)
     {
         $data = $data->validate([
@@ -101,7 +103,7 @@ class StudentsController extends Controller
     {
         $data = $request->validate([
             'school_id' => ['required', 'integer']
-           
+
         ]);
         $comment = Comment::where('student_id',auth()->id())->where('user_id',$data['school_id'])->get();
         if($comment != null){

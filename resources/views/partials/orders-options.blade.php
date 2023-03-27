@@ -5,8 +5,9 @@
     </a>
     <div class="dropdown-menu dropdown-menu-end">
 
-        <a class="dropdown-item" href="{{route('orders.edit',$order)}}"> <span
-                class="align-middle"> تعديل الحاله </span></a>
+        <a class="dropdown-item" href="#" data-bs-toggle="modal"
+           data-bs-target="#myModal-block-product-{{ $order->id }}">
+           تعديل الحالة </a>
 
         <a class="dropdown-item"
            onclick="event.preventDefault(); document.getElementById('profile-activate-{{ $order->id }}').submit();"
@@ -38,7 +39,7 @@
             <div class="modal-body">
                 <form class="needs-validation" novalidate
                       action="{{ route('updateStatus', $order->id) }}" method="POST" >
-                    @method('PATCH')
+                    @method('PUT')
                     @csrf
                     <div class="row">
 
@@ -51,6 +52,8 @@
                                     <option value="الانتظار">الانتظار</option>
                                     <option value="مكتمل">مكتمل</option>
                                         <option value="ملغي">ملغي</option>
+                                        <option value="مرفوض">مرفوض</option>
+
                                     </select>
                                     @error('status')
                                     <span class="invalid-feedback" role="alert">

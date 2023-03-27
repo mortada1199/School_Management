@@ -14,7 +14,7 @@ class AddStatusToStudents extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->set('status', ['الانتظار', 'مكتمل', 'ملغي'])->default('الانتظار');
+            $table->set('status', ['الانتظار', 'مكتمل', 'ملغي','مرفوض'])->default('الانتظار');
         });
     }
 

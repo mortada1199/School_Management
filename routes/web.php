@@ -61,9 +61,10 @@ Route::get('clear_cache', function () {
 //    Route::get('tests/{test}/{type}/{id}', [HomeController::class, 'getData'])->name("tests");
 //
 //    Route::resource('employees', EmployeesController::class)->except(['destroy']);
-   Route::put('updateStatus/{order}', [OrdersController::class, 'changeStatus'])->name('updateStatus');
     Route::resource('chapters', \App\Http\Controllers\ChapterController::class);
     Route::resource('orders', \App\Http\Controllers\OrdersController::class);
+Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name('updateStatus');
+
 
 //    Route::resource('people', PeopleController::class)->only('index');  //done
 //    Route::resource('doctorTest', DoctorTestsController::class);

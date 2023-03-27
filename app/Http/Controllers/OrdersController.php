@@ -21,8 +21,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-
-        $orders=Student::all();
+        $orders=Student::where('user_id',auth()->id())->get();
         return view('orders.index',compact('orders'));
     }
 

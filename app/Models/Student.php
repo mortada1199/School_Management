@@ -15,7 +15,7 @@ class Student extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
 
 
-   protected $fillable =['name','phone','grade_id','user_id','email','password','age','another_phone','chapter_id'];
+   protected $fillable =['name','phone','grade_id','user_id','email','password','age','another_phone','chapter_id','status'];
 
    public  function  chapter()
    {
