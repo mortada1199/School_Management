@@ -47,7 +47,6 @@
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->name ?? '' }}</td>
                                     <td>{{ $order->chapter->name}}</td>
-
                                     <td>{{ $order->created_at->format('y-m-d') }}</td>
                                     <td>{{$order->age}}</td>
                                     <td>{{$order->phone}}</td>
@@ -56,7 +55,7 @@
                                             <span class="badge bg-soft-warning" style="font-size:small ">الإنتظار</span>
                                         @elseif($order->status == 'مكتمل')
                                             <span class="badge bg-soft-success" style="font-size:small ">مكتمل</span>
-                                        @elseif($orderstatus == 'مرفوض')
+                                        @elseif($order->status == 'مرفوض')
                                             <span class="badge bg-soft-danger" style="font-size:small ">
                                                     مرفوض
                                                 </span>
