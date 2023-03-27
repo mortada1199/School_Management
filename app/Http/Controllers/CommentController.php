@@ -14,7 +14,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+       $comments= Comment::where('user_id',auth()->id())->get();
+
+       return  view('comments.index',compact('comments'));
     }
 
     /**

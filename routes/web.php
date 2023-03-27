@@ -63,6 +63,8 @@ Route::get('clear_cache', function () {
 //    Route::resource('employees', EmployeesController::class)->except(['destroy']);
     Route::resource('chapters', \App\Http\Controllers\ChapterController::class);
     Route::resource('orders', \App\Http\Controllers\OrdersController::class);
+Route::resource('comments', \App\Http\Controllers\CommentController::class);
+
 Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name('updateStatus');
 
 
