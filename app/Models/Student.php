@@ -15,6 +15,11 @@ class Student extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
 
 
-   protected $fillable =['name','phone','grade_id','user_id','email','password','age','another_phone'];
+   protected $fillable =['name','phone','grade_id','user_id','email','password','age','another_phone','chapter_id'];
+
+   public  function  chapter()
+   {
+       return $this->belongsTo(Chapter::class,'chapter_id');
+   }
 
 }
