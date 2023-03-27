@@ -69,7 +69,8 @@ class StudentsController extends Controller
                 $token = $student->createToken('auth_token')->plainTextToken;
 
                 return Response()->json([
-                    'access_token' => $token
+                    'access_token' => $token,
+                    'data' =>$student
                 ]);
             }
         } else {
@@ -78,25 +79,38 @@ class StudentsController extends Controller
             ], 401);
         }
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function Comment(Request $data)
     {
         $data = $data->validate([
             'rate' => ['required', 'integer', 'max:255'],
             'question' => ['required', 'string', 'max:255'],
+            'schoolId' =>['required', 'integer']
         ]);
         $comment = Comment::create([
             'rate' => $data['rate'],
             'question' => $data['question'],
-            'student_id' => auth()->id()
+            'student_id' => auth()->id(),
+            'user_id'=>$data['schoolId']
         ]);
 
         return  response()->json(['success' => 'true', 'message' => "comment created successfully", 'data' => $comment], 200);
+    }
+
+    public function getComment(Request $request)
+    {
+        $data = $request->validate([
+            'school_id' => ['required', 'integer']
+           
+        ]);
+        $comment = Comment::where('student_id',auth()->id())->where('user_id',$data['school_id'])->get();
+        if($comment != null){
+        return  response()->json(['success' => 'true', 'message' => "comments", 'data' => $comment], 200);
+        }
+        else{
+        return  response()->json(['success' => 'false', 'message' => "No Comment", 'data' => $comment], 305);
+        }
+
     }
 
     /**
