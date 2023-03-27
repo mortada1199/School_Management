@@ -23,7 +23,7 @@
                         <div class="row mt-2 dropdown">
                             <label class="form-label dropdown-toggle col-lg-3">اسم الفصل</label>
                             <div class="col-lg-9">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" dir="rtl" name="name" id="name"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="{{$chapter->name}}}">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" dir="rtl" name="name" id="name"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="{{$chapter->name}}">
                                 <div class="dropdown-menu" id="name_menu" aria-labelledby="name">
 
                                 </div>
