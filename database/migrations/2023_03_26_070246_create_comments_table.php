@@ -18,8 +18,8 @@ class CreateCommentsTable extends Migration
             $table->integer('rate');
             $table->foreignId('user_id')->nullable();
             $table->foreignId('student_id')->nullable();
-            $table->string('quetion')->comment('student');//student
-            $table->string('replay')->comment('school');//school
+            $table->string('question')->comment('student')->nullable();//student
+            $table->string('replay')->comment('school')->nullable();//school
             $table->timestamps();
         });
     }
