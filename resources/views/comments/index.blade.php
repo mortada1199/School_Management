@@ -35,6 +35,7 @@
                                 <th>  السؤال</th>
                                 <th>  التقييم </th>
                                 <th>الرد</th>
+                                <th>الحاله</th>
                                 <th> الخبارات</th>
                             </tr>
                             </thead>
@@ -48,23 +49,17 @@
                                     <td>{{$comment->rate}}</td>
                                     <th>{{$comment->replay}}</th>
 
-{{--                                    <td>--}}
-{{--                                        @if ($order->status == 'الانتظار')--}}
-{{--                                            <span class="badge bg-soft-warning" style="font-size:small ">الإنتظار</span>--}}
-{{--                                        @elseif($order->status == 'مكتمل')--}}
-{{--                                            <span class="badge bg-soft-success" style="font-size:small ">مكتمل</span>--}}
-{{--                                        @elseif($order->status == 'مرفوض')--}}
-{{--                                            <span class="badge bg-soft-danger" style="font-size:small ">--}}
-{{--                                                    مرفوض--}}
-{{--                                                </span>--}}
-{{--                                        @elseif($order->status == 'ملغي')--}}
-{{--                                            <span class="badge bg-soft-secondary" style="font-size:small ">ملغي</span>--}}
-{{--                                        @endif--}}
-{{--                                    </td>--}}
+                                    <td>
+                                        @if ($comment->status == 'الانتظار')
+                                            <span class="badge bg-soft-warning" style="font-size:small ">الإنتظار</span>
+                                        @else($comment->status == 'مكتمل')
+                                            <span class="badge bg-soft-success" style="font-size:small ">مكتمل</span>
+                                        @endif
+                                    </td>
 
 
 
-{{--                                    <td>@include('partials.orders-options')</td>--}}
+                                    <td>@include('partials.comment-options')</td>
                                 </tr>
                             @endforeach
 
