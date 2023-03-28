@@ -14,9 +14,18 @@
            href="#">
             <span class="align-middle"> حذف التعليق</span>
         </a>
+        @if($comment->status=="الانتظار")
+
         <a class="dropdown-item" href="#" data-bs-toggle="modal"
            data-bs-target="#myModal-block-lorem-{{ $comment->id }}">
             تعديل الحالة </a>
+        @else
+            <a class="dropdown-item" href="#"
+               data-bs-target="#myModal-block-lorem-{{ $comment->id }}" style=" cursor: not-allowed;color: grey"  >
+                تعديل الحالة </a>
+
+        @endif
+
 
 
     </div>
