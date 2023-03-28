@@ -67,6 +67,7 @@ Route::resource('comments', \App\Http\Controllers\CommentController::class);
 
 Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name('updateStatus');
 
+Route::put('updateStatus/{id}', [\App\Http\Controllers\CommentController::class, 'changeStatus'])->name('updateStatus');
 
 //    Route::resource('people', PeopleController::class)->only('index');  //done
 //    Route::resource('doctorTest', DoctorTestsController::class);
