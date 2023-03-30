@@ -157,14 +157,7 @@
                                 </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="uil-files-landscapes-alt"></i>
-                                <span>
-                                    سجل الفحوصات
-                                </span>
-                            </a>
-                        </li>
+
 
                     </ul>
                 </li>
@@ -181,7 +174,7 @@
                             <a href="#">
                                 <i class="uil-heart-rate"></i>
                                 <span>
-                                    زيادة الدم
+                                   الاشعارات
                                 </span>
                             </a>
                         </li>

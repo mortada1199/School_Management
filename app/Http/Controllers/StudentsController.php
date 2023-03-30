@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
 use App\Models\Comment;
 use App\Models\Student;
 use Illuminate\Auth\Access\Response;
@@ -39,7 +40,7 @@ class StudentsController extends Controller
             "age" => ['required', 'string',],
             "user_id" => ['required',],
             "grade_id" => ['required'],
-            'chapter_id'=>['required','exists:chapters,id'],
+            'chapter_id' => ['required', 'exists:chapters,id'],
 
         ]);
         $student = Student::create([
@@ -56,9 +57,8 @@ class StudentsController extends Controller
         $token = $student->createToken('auth_token')->plainTextToken;
 
 
-        return  response()->json(['success' => 'true', 'message' => "user created successfully", 'data' => $student, 'token' => $token], 200);
+        return response()->json(['success' => 'true', 'message' => "user created successfully", 'data' => $student, 'token' => $token], 200);
     }
-
 
 
     public function login(Request $request)
@@ -72,7 +72,7 @@ class StudentsController extends Controller
 
                 return Response()->json([
                     'access_token' => $token,
-                    'data' =>$student
+                    'data' => $student
                 ]);
             }
         } else {
@@ -87,16 +87,16 @@ class StudentsController extends Controller
         $data = $data->validate([
             'rate' => ['required', 'integer', 'max:255'],
             'question' => ['required', 'string', 'max:255'],
-            'schoolId' =>['required', 'integer']
+            'schoolId' => ['required', 'integer']
         ]);
         $comment = Comment::create([
             'rate' => $data['rate'],
             'question' => $data['question'],
             'student_id' => auth()->id(),
-            'user_id'=>$data['schoolId']
+            'user_id' => $data['schoolId']
         ]);
 
-        return  response()->json(['success' => 'true', 'message' => "comment created successfully", 'data' => $comment], 200);
+        return response()->json(['success' => 'true', 'message' => "comment created successfully", 'data' => $comment], 200);
     }
 
     public function getComment(Request $request)
@@ -105,12 +105,11 @@ class StudentsController extends Controller
             'school_id' => ['required', 'integer']
 
         ]);
-        $comment = Comment::where('student_id',auth()->id())->where('user_id',$data['school_id'])->get();
-        if($comment != null){
-        return  response()->json(['success' => 'true', 'message' => "comments", 'data' => $comment], 200);
-        }
-        else{
-        return  response()->json(['success' => 'false', 'message' => "No Comment", 'data' => $comment], 305);
+        $comment = Comment::where('student_id', auth()->id())->where('user_id', $data['school_id'])->get();
+        if ($comment != null) {
+            return response()->json(['success' => 'true', 'message' => "comments", 'data' => $comment], 200);
+        } else {
+            return response()->json(['success' => 'false', 'message' => "No Comment", 'data' => $comment], 305);
         }
 
     }
@@ -119,8 +118,39 @@ class StudentsController extends Controller
     {
 
     }
+
     public function updateProfile(Request $request)
     {
+
+    }
+
+    public function uploadNotice(Request $request)
+    {
+        $request->validate(['attachementFile' => 'required','student_id' => 'required|exists:students,id']);
+
+        $student = Student::find($request->student_id);
+
+        if (isset($request['attachementFile'])) {
+            $student->addMedia($request['attachementFile'])
+                ->toMediaCollection('notices');
+        }
+
+        return response()->json(['success' => 'true', 'message' => "notices uploaded successfully"], 200);
+
+    }
+
+    public function uploadResult(Request $request, $id)
+
+    {
+        $chapter = Chapter::find($id);
+
+        if (isset($request['attachementFile'])) {
+            $chapter->addMultipleMediaFromRequest(['attachementFile'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('results');
+                });
+        }
+        return response()->json(['success' => 'true', 'message' => "notices Result successfully"], 200);
 
     }
 }
