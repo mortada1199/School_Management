@@ -34,7 +34,7 @@ class StudentsController extends Controller
         $data = $data->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6'],
             'phone' => ['required', 'string', 'min:10', 'max:14', "unique:students"],
             'another_phone' => ['required', 'string', 'min:10', 'max:14', "unique:students"],
             "age" => ['required', 'string',],
@@ -123,34 +123,7 @@ class StudentsController extends Controller
     {
 
     }
+}
 
-    public function uploadNotice(Request $request)
-    {
-        $request->validate(['attachementFile' => 'required','student_id' => 'required|exists:students,id']);
 
-        $student = Student::find($request->student_id);
-
-        if (isset($request['attachementFile'])) {
-            $student->addMedia($request['attachementFile'])
-                ->toMediaCollection('notices');
-        }
-
-        return response()->json(['success' => 'true', 'message' => "notices uploaded successfully"], 200);
-
-    }
-
-    public function uploadResult(Request $request, $id)
-
-    {
-        $chapter = Chapter::find($id);
-
-        if (isset($request['attachementFile'])) {
-            $chapter->addMultipleMediaFromRequest(['attachementFile'])
-                ->each(function ($fileAdder) {
-                    $fileAdder->toMediaCollection('results');
-                });
-        }
-        return response()->json(['success' => 'true', 'message' => "notices Result successfully"], 200);
-
-    }
 }
