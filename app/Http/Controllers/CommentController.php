@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -14,7 +15,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+       $comments= Comment::where('user_id',auth()->id())->get();
+
+       return  view('comments.index',compact('comments'));
     }
 
     /**
@@ -69,7 +72,9 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->update(['replay'=>$request->replay]);
+
+        return  back()->with('success','تم الرد بنجاح');
     }
 
     /**
@@ -80,6 +85,14 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return  back()->with('success','تم الحذف بنجاح');
+    }
+
+    public  function  changeStatus(Request  $request,$id)
+    {
+        $comment=Comment::find($id);
+        $comment->update(['status'=>$request->status]);
+        return back()->with('success','تم تغير الحاله بنجاح');
     }
 }

@@ -26,5 +26,8 @@ Route::middleware(['auth:sanctum'])->prefix('student/')->group(function () {
  Route::post('school/comment', [StudentsController::class, 'getComment']);
  Route::post('upload/invoice', [StudentsController::class, 'Invoice']);
  Route::put('update', [StudentsController::class, 'updateProfile']);
+ Route::post('upload-notice',[StudentsController::class,'uploadNotice']);
+
+
 
 });

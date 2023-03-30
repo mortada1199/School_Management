@@ -144,27 +144,20 @@
 
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
-                        <span>  التعاليق
+                        <span>  التعليقات
 
                         </span>
                     </a>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{route('comments.index')}}">
                                 <i class="uil-user"></i>
                                 <span>
-                                    عمل فحص
+                                    التعليقات والتقييم
                                 </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="uil-files-landscapes-alt"></i>
-                                <span>
-                                    سجل الفحوصات
-                                </span>
-                            </a>
-                        </li>
+
 
                     </ul>
                 </li>
@@ -181,7 +174,7 @@
                             <a href="#">
                                 <i class="uil-heart-rate"></i>
                                 <span>
-                                    زيادة الدم
+                                   الاشعارات
                                 </span>
                             </a>
                         </li>
