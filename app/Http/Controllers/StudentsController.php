@@ -121,9 +121,32 @@ class StudentsController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $request = $request->validate([
+            'name' => ['string', 'max:255'],
+            'email' => ['string', 'email', 'max:255', 'unique:students'],
+            'password' => ['string', 'min:6', 'confirmed'],
+            'phone' => ['string', 'min:10', 'max:14', "unique:students"],
+
+
+        ]);
+        $student = Student::where('id', auth()->id())->first();
+        if ($student != null) {
+            $student->update([
+                'name' => $request['name'] ?? $student->name,
+                'email' => $request['email'] ?? $student->email,
+                'password' => $request['password'] ?? $student->password,
+                'phone' => $request['phone'] ?? $student->phone,
+            ]);
+            return  response()->json(['success' => 'true', 'message' => "profile update successfuly", 'data' => $student], 200);
+        }
+        else{
+            return  response()->json(['success' => 'false', 'message' => "No profile", 'data' => ""], 305);
+
+        }
+    }
 
     }
-}
 
 
-}
+
+
