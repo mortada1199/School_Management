@@ -14,8 +14,11 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $chapters= Chapter::all();
-        return  view('chapters.index',compact('chapters'));
+        $chapters= Chapter::with('media')->get();
+
+        return request()->wantsJson()
+            ? response()->json(['success'=>'true','data'=>$chapters],200)
+            : view('chapters.index',['chapters'=>$chapters]);
     }
 
     /**
@@ -49,7 +52,7 @@ class ChapterController extends Controller
      */
     public function show(Chapter $chapter)
     {
-        //
+        return view('chapters.show', compact('chapter'));
     }
 
     /**

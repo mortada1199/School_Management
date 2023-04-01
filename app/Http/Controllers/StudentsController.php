@@ -139,16 +139,16 @@ class StudentsController extends Controller
 
     }
 
-    public function uploadResult(Request $request)
+    public function uploadClasses(Request $request)
 
     {
-        $request->validate(['results' => 'required']);
+        $request->validate(['classes' => 'required']);
 
         $chapter = Chapter::find($request->chapter_id);
 
 
-        $request->whenHas('results', function ($input) use ($chapter) {
-            $chapter->uploadFiles($input, 'results');
+        $request->whenHas('classes', function ($input) use ($chapter) {
+            $chapter->uploadFiles($input, 'classes');
         });
 
         return back()->with('success', 'تم رفع الحصص بنجاح');

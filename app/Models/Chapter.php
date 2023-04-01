@@ -11,5 +11,5 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Chapter extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia , FilesTrait;
-    protected  $fillable=['name','student_id','user_id','results','servings'];
+    protected  $fillable=['name','student_id','user_id','Classes','servings'];
 }

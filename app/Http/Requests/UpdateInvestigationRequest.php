@@ -24,8 +24,8 @@ class UpdateInvestigationRequest extends FormRequest
     public function rules()
     {
         return [
-            'results' => ['required', 'array'],
-            'results.*.result' => ['string']
+            'Classes' => ['required', 'array'],
+            'Classes.*.result' => ['string']
         ];
     }
 }

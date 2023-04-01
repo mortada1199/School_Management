@@ -102,7 +102,7 @@ return [
         ],
         Spatie\ImageOptimizer\Optimizers\Gifsicle::class => [
             '-b', // required parameter for this package
-            '-O3', // this produces the slowest but best results
+            '-O3', // this produces the slowest but best Classes
         ],
         Spatie\ImageOptimizer\Optimizers\Cwebp::class => [
             '-m 6', // for the slowest compression method in order to get the best compression.

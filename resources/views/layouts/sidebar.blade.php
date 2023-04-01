@@ -83,16 +83,16 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
                         <span>
-                            النتائج
+                            الحصص
                         </span>
                     </a>
                     <ul>
                         <li>
                             {{-- @if (auth()->user()->employee->unit == 'الاستقبال') --}}
-                            <a href="{{route('results.create')}}">
+                            <a href="{{route('Classes.create')}}">
                                 <i class="uil-user-arrows"></i>
                                 <span>
-                                    اضافه نتيجة
+                                    اضافه الحصص
                                 </span>
                             </a>
                             {{-- @endif --}}
@@ -107,7 +107,7 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="uil-social-distancing"></i>
                         <span>
-                            الحصص
+                            الدرجات
                         </span>
                     </a>
                     <ul>
@@ -116,7 +116,7 @@
                             <a href="{{route('grades.create')}}">
                                 <i class="uil-user-arrows"></i>
                                 <span>
-                                    اضافه الحصص
+                                    اضافه الدرجات
                                 </span>
                             </a>
                             {{-- @endif --}}
