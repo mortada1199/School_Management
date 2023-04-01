@@ -12,7 +12,7 @@
         @slot('title')   الدرجات @endslot
     @endcomponent
 
-    <form action="{{route('upload-result')}}" method="post"  enctype="multipart/form-data"   >
+    <form action="{{route('upload-grades')}}" method="post"  enctype="multipart/form-data"   >
         @csrf
         <div class="row">
             <div class="col-12">

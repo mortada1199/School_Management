@@ -62,7 +62,7 @@ Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSub
 Route::resource('chapters', \App\Http\Controllers\ChapterController::class);
 Route::resource('orders', \App\Http\Controllers\OrdersController::class);
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
-Route::post('upload-notice',[\App\Http\Controllers\StudentsController::class,'uploadNotice'])->name('upload-notice');
+Route::post('upload-grades',[\App\Http\Controllers\StudentsController::class,'uploadGrades'])->name('upload-grades');
 Route::post('upload-result',[\App\Http\Controllers\StudentsController::class,'uploadResult'])->name('upload-result');
 
 Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name('updateStatus');
