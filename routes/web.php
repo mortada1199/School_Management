@@ -58,14 +58,14 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 
 Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit');
 
-Route::get('chapters/download/file/{media}', [\App\Http\Controllers\ChapterController::class, 'downloadFile'])->name('chapter.downloadfile');
-Route::get('chapters/delete/file/{media}/{donorentity}', [\App\Http\Controllers\ChapterController::class, 'deleteFile'])->name('chapter.deletefile');
 Route::resource('chapters', \App\Http\Controllers\ChapterController::class);
 Route::resource('orders', \App\Http\Controllers\OrdersController::class);
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::post('upload-grades',[\App\Http\Controllers\StudentsController::class,'uploadGrades'])->name('upload-grades');
 Route::post('upload-classes',[\App\Http\Controllers\StudentsController::class,'uploadClasses'])->name('upload-classes');
 
+Route::get('chapters/download/file/{media}', [\App\Http\Controllers\ChapterController::class, 'downloadFile'])->name('chapters.downloadfile');
+Route::get('chapters/delete/file/{media}/{donorentity}', [\App\Http\Controllers\ChapterController::class, 'deleteFile'])->name('chapters.deletefile');
 Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name('updateStatus');
 
 Route::put('updateStatus/{id}', [\App\Http\Controllers\CommentController::class, 'changeStatus'])->name('updateStatus');

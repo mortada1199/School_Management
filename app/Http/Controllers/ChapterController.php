@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chapter;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ChapterController extends Controller
 {
@@ -89,5 +90,19 @@ class ChapterController extends Controller
     {
         $chapter->delete();
         return  redirect()->back()->with('success','تم حذف الفصل بنجاح');
+    }
+
+    public function downloadFile(Media $media)
+    {
+        return $media;
+    }
+
+    public function deleteFile(Media $media, chapter $chapter)
+    {
+        $media->delete();
+
+        session()->flash('success', 'تم حذف الملف بنجاح');
+
+        return back();
     }
 }
