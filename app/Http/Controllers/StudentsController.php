@@ -126,7 +126,7 @@ class StudentsController extends Controller
 
     public function uploadNotice(Request $request)
     {
-        $request->validate(['attachementFile' => 'required','student_id' => 'required|exists:students,id']);
+        $request->validate(['attachementFile' => 'required', 'student_id' => 'required|exists:students,id']);
 
         $student = Student::find($request->student_id);
 
@@ -139,18 +139,34 @@ class StudentsController extends Controller
 
     }
 
-    public function uploadResult(Request $request, $id)
+    public function uploadResult(Request $request)
 
     {
-        $chapter = Chapter::find($id);
+        $request->validate(['results' => 'required']);
 
-        if (isset($request['attachementFile'])) {
-            $chapter->addMultipleMediaFromRequest(['attachementFile'])
-                ->each(function ($fileAdder) {
-                    $fileAdder->toMediaCollection('results');
-                });
-        }
-        return response()->json(['success' => 'true', 'message' => "notices Result successfully"], 200);
+        $chapter = Chapter::find($request->chapter_id);
+
+
+        $request->whenHas('results', function ($input) use ($chapter) {
+            $chapter->uploadFiles($input, 'results');
+        });
+
+        return back()->with('success', 'تم رفع الحصص بنجاح');
+
+    }
+
+    public function uploadGrades(Request $request)
+    {
+        $request->validate(['grades' => 'required']);
+
+        $chapter = Chapter::find($request->chapter_id);
+
+
+        $request->whenHas('grades', function ($input) use ($chapter) {
+            $chapter->uploadFiles($input, 'grades');
+        });
+
+        return back()->with('success', 'تم رفع النتيجه بنجاح');
 
     }
 }

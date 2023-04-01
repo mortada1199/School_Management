@@ -69,5 +69,10 @@ Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name
 
 Route::put('updateStatus/{id}', [\App\Http\Controllers\CommentController::class, 'changeStatus'])->name('updateStatus');
 
+Route::get('results/create',function (){
+   return view('results/create');
+})->name('results.create');
 
-
+Route::get('grades/create',function (){
+    return view('grades/create');
+})->name('grades.create');

@@ -89,10 +89,10 @@
                     <ul>
                         <li>
                             {{-- @if (auth()->user()->employee->unit == 'الاستقبال') --}}
-                            <a href="#">
+                            <a href="{{route('results.create')}}">
                                 <i class="uil-user-arrows"></i>
                                 <span>
-                                    اضافة تبرع
+                                    اضافه نتيجة
                                 </span>
                             </a>
                             {{-- @endif --}}
