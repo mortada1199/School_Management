@@ -15,11 +15,11 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $chapters= Chapter::with('media')->get();
+        $chapters = Chapter::with('media')->get();
 
         return request()->wantsJson()
-            ? response()->json(['success'=>'true','data'=>$chapters],200)
-            : view('chapters.index',['chapters'=>$chapters]);
+            ? response()->json(['success' => 'true', 'data' => $chapters], 200)
+            : view('chapters.index', ['chapters' => $chapters]);
     }
 
     /**
@@ -29,26 +29,27 @@ class ChapterController extends Controller
      */
     public function create()
     {
-        return  view('chapters.create');
+        return view('chapters.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $data=  $request->validate(['name'=>'required', 'string','max:255']);
+        $data = $request->validate(['name' => 'required', 'string', 'max:255']);
+        $data['user_id'] = auth()->id();
         Chapter::create($data);
-        return  redirect()->back()->with('success','تم إنشاء الفصل بنجاح');
+        return redirect()->back()->with('success', 'تم إنشاء الفصل بنجاح');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Chapter  $chapter
+     * @param \App\Models\Chapter $chapter
      * @return \Illuminate\Http\Response
      */
     public function show(Chapter $chapter)
@@ -59,37 +60,37 @@ class ChapterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Chapter  $chapter
+     * @param \App\Models\Chapter $chapter
      * @return \Illuminate\Http\Response
      */
     public function edit(Chapter $chapter)
     {
-        return  view('chapters.edit', compact('chapter'));
+        return view('chapters.edit', compact('chapter'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Chapter  $chapter
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Chapter $chapter
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Chapter $chapter)
     {
-        $chapter->update(['name'=>$request->name]);
-        return  redirect()->back()->with('success','تم تعديل الفصل بنجاح');
+        $chapter->update(['name' => $request->name]);
+        return redirect()->back()->with('success', 'تم تعديل الفصل بنجاح');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Chapter  $chapter
+     * @param \App\Models\Chapter $chapter
      * @return \Illuminate\Http\Response
      */
     public function destroy(Chapter $chapter)
     {
         $chapter->delete();
-        return  redirect()->back()->with('success','تم حذف الفصل بنجاح');
+        return redirect()->back()->with('success', 'تم حذف الفصل بنجاح');
     }
 
     public function downloadFile(Media $media)
