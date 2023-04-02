@@ -195,14 +195,14 @@
                                 </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="uil-files-landscapes-alt"></i>
-                                <span>
-                                    سجل زيادة الدم
-                                </span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="#">--}}
+{{--                                <i class="uil-files-landscapes-alt"></i>--}}
+{{--                                <span>--}}
+{{--                                    سجل زيادة الدم--}}
+{{--                                </span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
                     </ul>
                 </li>
@@ -227,13 +227,13 @@
 
                 <li>
                     {{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
-                    <a href="#">
-                        <i class="uil-file"></i>
+{{--                    <a href="#">--}}
+{{--                        <i class="uil-file"></i>--}}
 
-                        <span>
-                            التقارير
-                        </span>
-                    </a>
+{{--                        <span>--}}
+{{--                            التقارير--}}
+{{--                        </span>--}}
+{{--                    </a>--}}
                     {{-- @endif --}}
 
                 </li>
