@@ -71,9 +71,12 @@ Route::put('updateStatus/{id}', [OrdersController::class, 'changeStatus'])->name
 Route::put('updateStatus/{id}', [\App\Http\Controllers\CommentController::class, 'changeStatus'])->name('updateStatus');
 
 Route::get('Classes/create',function (){
-   return view('Classes/create');
+    $chapters=\App\Models\Chapter::where('user_id',auth()->id())->get();
+   return view('Classes/create',compact('chapters'));
 })->name('Classes.create');
 
 Route::get('grades/create',function (){
-    return view('grades/create');
+    $chapters=\App\Models\Chapter::where('user_id',auth()->id())->get();
+
+    return view('grades/create',compact('chapters'));
 })->name('grades.create');

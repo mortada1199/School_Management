@@ -22,7 +22,7 @@
                             <label class="form-label dropdown-toggle col-lg-3"> الفصل</label>
                             <div class="col-lg-9">
                              <select class="form-control" name="chapter_id" >
-                                 @foreach(App\Models\Chapter::where('user_id',auth()->id())->get() as $chapter)
+                                 @foreach($chapters as $chapter)
                                      <option value="{{$chapter->id}}">{{$chapter->name}}</option>
                                  @endforeach
 
