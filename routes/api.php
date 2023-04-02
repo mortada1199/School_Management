@@ -32,7 +32,7 @@ Route::prefix('student')->group(function () {
 
 Route::middleware(['auth:sanctum'])->prefix('student/')->group(function () {
  Route::post('comment', [StudentsController::class, 'Comment']);
- Route::post('school/comment', [StudentsController::class, 'getComment']);
+ Route::get('school/comment', [StudentsController::class, 'getComment']);
  Route::post('upload/invoice', [StudentsController::class, 'Invoice']);
  Route::post('upload-notice',[\App\Http\Controllers\StudentsController::class,'uploadNotice']);
 
