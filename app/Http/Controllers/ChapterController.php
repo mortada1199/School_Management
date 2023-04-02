@@ -15,7 +15,7 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $chapters = Chapter::with('media')->get();
+        $chapters = Chapter::where('user_id',auth()->id())->with('media')->get();
 
         return request()->wantsJson()
             ? response()->json(['success' => 'true', 'data' => $chapters], 200)

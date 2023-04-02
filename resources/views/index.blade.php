@@ -21,7 +21,7 @@
                     </div>
                     <div>
                         <h4 class="mb-1 mt-1"><span data-plugin="counterup">ِ>{{ App\Models\Student::where('user_id',auth()->id())->count()}}</span></h4>
-                        <p class="text-muted mb-0">الطلاب المقبولين</p>
+                        <p class="text-muted mb-0"> كل الطلبات</p>
                     </div>
 
                 </div>
@@ -52,8 +52,8 @@
                         <div id="customers-chart"> </div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">10</span></h4>
-                        <p class="text-muted mb-0">الخزنة</p>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">{{ App\Models\Student::where('user_id',auth()->id())->where('status','مكتمل')->count()}}</span></h4>
+                        <p class="text-muted mb-0">الطلبات المكتمله</p>
                     </div>
 
                 </div>
@@ -68,8 +68,8 @@
                         <div id="growth-chart"></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"> <span data-plugin="counterup">11</span></h4>
-                        <p class="text-muted mb-0">المنصرف</p>
+                        <h4 class="mb-1 mt-1"> <span data-plugin="counterup">{{ App\Models\Student::where('user_id',auth()->id())->where('status','مرفوض')->count()}}</span></h4>
+                        <p class="text-muted mb-0">الطلبات المرفوضه</p>
                     </div>
 
                 </div>
@@ -86,8 +86,8 @@
                     </div>
                     <div>
                         <h4 class="mb-1 mt-1"><span
-                                data-plugin="counterup">12</span></h4>
-                        <p class="text-muted mb-0">التبرعات الخارجية</p>
+                                data-plugin="counterup">{{ App\Models\Student::where('user_id',auth()->id())->where('status','الانتظار')->count()}}</span></h4>
+                        <p class="text-muted mb-0"> الطلبات في حاله الانتظار</p>
                     </div>
 
                 </div>
@@ -104,8 +104,8 @@
                     </div>
                     <div>
                         <h4 class="mb-1 mt-1"> <span
-                                data-plugin="counterup">12</span></h4>
-                        <p class="text-muted mb-0">fresh blood</p>
+                                data-plugin="counterup">{{ App\Models\Student::where('user_id',auth()->id())->where('status','ملغي')->count()}}</span></h4>
+                        <p class="text-muted mb-0">الطلبات الملغيه </p>
                     </div>
 
                 </div>
