@@ -9,6 +9,8 @@
            data-bs-target="#myModal-block-product-{{ $order->id }}">
            تعديل الحالة </a>
 
+        <a class="dropdown-item" href="{{route('orders.show',$order->id)}}"> <span
+                class="align-middle"> مشاهده الطلب </span></a>
         <a class="dropdown-item"
            onclick="event.preventDefault(); document.getElementById('profile-activate-{{ $order->id }}').submit();"
            href="#">

@@ -34,6 +34,11 @@ class OrdersController extends Controller
     {
     }
 
+     public function  show(Student  $student)
+     {
+         return view('orders.show',compact('student'));
+     }
+
     public  function  changeStatus(Request  $request,$id)
     {
         $student=Student::find($id);
