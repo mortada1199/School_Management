@@ -39,7 +39,6 @@ class StudentsController extends Controller
             'another_phone' => ['required', 'string', 'min:10', 'max:14', "unique:students"],
             "age" => ['required', 'string',],
             "user_id" => ['required',],
-            "grade_id" => ['required'],
             'chapter_id' => ['required', 'exists:chapters,id'],
 
         ]);
@@ -51,7 +50,6 @@ class StudentsController extends Controller
             'another_phone' => $data['another_phone'],
             'age' => $data['age'],
             'user_id' => $data['user_id'],
-            'grade_id' => $data['grade_id'],
             'chapter_id' => $data['chapter_id']
         ]);
         $token = $student->createToken('auth_token')->plainTextToken;

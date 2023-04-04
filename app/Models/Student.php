@@ -17,7 +17,7 @@ class Student extends Authenticatable  implements HasMedia
     use HasFactory, Notifiable, HasApiTokens ,InteractsWithMedia;
 
 
-   protected $fillable =['name','phone','grade_id','user_id','email','password','age','another_phone','chapter_id','status'];
+   protected $fillable =['name','phone','user_id','email','password','age','another_phone','chapter_id','status'];
 
    public  function  chapter()
    {
