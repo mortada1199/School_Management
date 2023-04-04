@@ -50,7 +50,7 @@
 
                         <tr>
                             <td>  الإشعار</td>
-{{--                            <td>{{ asset('public/assets/storage/'.{{$image}}) }}</td>--}}
+       <td>     <img src="{{$student->getFirstMediaUrl('notices', 'thumb')}}" width="120px"></td>
                         </tr>
 
                         </tbody>

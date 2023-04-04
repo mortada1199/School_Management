@@ -37,12 +37,12 @@
                                 <th>  العمر</th>
                                 <th> رقم الهاتف </th>
                                 <th>  الحالة</th>
-
+                                <th>الاشعار </th>
                                 <th> الخبارات</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($orders as $order)
+                            @foreach ($orders as $key=>$order)
                                 <tr>
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->name ?? '' }}</td>
@@ -64,6 +64,7 @@
                                         @endif
                                     </td>
 
+                                    <td>     <img src="{{$order->getFirstMediaUrl('notices')}}" width="120px"></td>
 
 
                                     <td>@include('partials.orders-options')</td>
