@@ -32,7 +32,7 @@
                         </tr>
                         <tr>
                             <td>الفصل</td>
-                        <td>{{ $student->chapter->name}}</td>
+                        <td>{{ $student->chapter->name??''}}</td>
 
                         </tr>
                         <tr>
@@ -45,7 +45,12 @@
                         </tr>
                         <tr>
                             <td> رقم الهاتف</td>
-                            <td>{{ $chapter->created_at->format('y-m-d') }}</td>
+                            <td>{{ $student->age }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>  الإشعار</td>
+{{--                            <td>{{ asset('public/assets/storage/'.{{$image}}) }}</td>--}}
                         </tr>
 
                         </tbody>

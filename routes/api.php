@@ -17,13 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('all-chapters',function (){
     $chapters=\App\Models\Chapter::all();
+
     return response()->json(['success'=>true, 'chapters'=>$chapters],200);
 });
-Route::get('all-schools',function (){
-    $schools=\App\Models\User::all();
-    return response()->json(['success'=>true, 'schools'=>$schools],200);
-
-});
+Route::get('all-schools',[\App\Http\Controllers\SchoolsController::class,'index']);
 
 Route::prefix('student')->group(function () {
     Route::post('register', [StudentsController::class, 'create']);
