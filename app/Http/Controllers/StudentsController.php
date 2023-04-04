@@ -61,19 +61,20 @@ class StudentsController extends Controller
 
     public function login(Request $request)
     {
-
-        $student = Student::where('email', $request['email'])->first();
-
-        if ($student != null) {
-            if ($request['email'] == $student->email && $request['password'] == $student->password) {
+       $request->validate([
+            'password' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255',],
+        ]);
+        $student = Student::where('email', $request['email'])->where( 'password',$request['password'] ) ->first();
+        if($student!=null){
                 $token = $student->createToken('auth_token')->plainTextToken;
 
                 return Response()->json([
                     'access_token' => $token,
                     'data' => $student
-                ]);
+                ],200);
             }
-        } else {
+         else {
             return response()->json([
                 'message' => 'Invalid login details'
             ], 401);
