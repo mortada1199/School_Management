@@ -34,16 +34,16 @@ class OrdersController extends Controller
     {
     }
 
-     public function  show($id)
-     {
-         $student=Student::with('media')->find($id);
-         $image=null;
-            foreach ($student->media as $m)
-            {
-                $image=$m;
-            }
-         return view('orders.show',compact('student','image'));
-     }
+    public function  show($id)
+    {
+        $student=Student::with('media')->find($id);
+        $image=null;
+        foreach ($student->media as $m)
+        {
+            $image=$m;
+        }
+        return view('orders.show',compact('student','image'));
+    }
     public  function  changeStatus(Request  $request,$id)
     {
         $student=Student::find($id);

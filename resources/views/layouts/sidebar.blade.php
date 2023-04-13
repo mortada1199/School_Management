@@ -179,22 +179,22 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="uil-social-distancing"></i>
-                        <span>
-                             الإشعارات
-                        </span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="uil-heart-rate"></i>
-                                <span>
-                                   الاشعارات
-                                </span>
-                            </a>
-                        </li>
+{{--                <li>--}}
+{{--                    <a href="javascript: void(0);" class="has-arrow waves-effect">--}}
+{{--                        <i class="uil-social-distancing"></i>--}}
+{{--                        <span>--}}
+{{--                             الإشعارات--}}
+{{--                        </span>--}}
+{{--                    </a>--}}
+{{--                    <ul>--}}
+{{--                        <li>--}}
+{{--                            <a href="#">--}}
+{{--                                <i class="uil-heart-rate"></i>--}}
+{{--                                <span>--}}
+{{--                                   الاشعارات--}}
+{{--                                </span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 {{--                        <li>--}}
 {{--                            <a href="#">--}}
 {{--                                <i class="uil-files-landscapes-alt"></i>--}}
@@ -204,8 +204,8 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
 
-                    </ul>
-                </li>
+{{--                    </ul>--}}
+{{--                </li>--}}
 
                 {{-- @endif --}}
 
@@ -225,8 +225,8 @@
 
                 <li>
 
-                <li>
-                    {{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
+{{--                <li>--}}
+{{--                    --}}{{-- @if (auth()->user()->employee->unit == 'الادارة') --}}
 {{--                    <a href="#">--}}
 {{--                        <i class="uil-file"></i>--}}
 
@@ -234,9 +234,9 @@
 {{--                            التقارير--}}
 {{--                        </span>--}}
 {{--                    </a>--}}
-                    {{-- @endif --}}
+{{--                    --}}{{-- @endif --}}
 
-                </li>
+{{--                </li>--}}
                 {{-- <ul>
 
                         <li>
