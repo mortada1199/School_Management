@@ -20,7 +20,10 @@
                         <div id="total-revenue-chart"></div>
                     </div>
                     <div>
-                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">ِ{{ App\Models\Student::where('user_id',auth()->id())->count()}}</span></h4>
+                        <h4 class="mb-1 mt-1"><span data-plugin="counterup">
+                                {{$ordersCount}}
+
+                            </span></h4>
                         <p class="text-muted mb-0"> كل الطلبات</p>
                     </div>
 

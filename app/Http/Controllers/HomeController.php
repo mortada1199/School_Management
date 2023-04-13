@@ -6,6 +6,7 @@ use App\Models\Donation;
 use App\Models\Kid;
 use App\Models\Order;
 use App\Models\Polycythemia;
+use App\Models\Student;
 use App\Models\ViralDisease;
 use Illuminate\Http\Request;
 
@@ -32,14 +33,16 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-       
-        return view('index');
+
+        $ordersCount=Student::where('user_id',auth()->id())->count();
+
+        return view('index',compact('ordersCount'));
     }
 
     public function getData()
     {
-        
-  
+
+
         return view('viralTest');
     }
 }
