@@ -1,16 +1,16 @@
 /******/ (() => { // webpackBootstrap
   var __webpack_exports__ = {};
-  var list = document.getElementById("list").value;
-  list = JSON.parse(list);
-
-  let data1=list['A+'];
-  let data2=list['B+'];
-  let data3=list['AB+'];
-  let data4=list['O+'];
-  let data5=list['A-'];
-  let data6=list['B-'];
-  let data7=list['AB-'];
-  let data8=list['O-'];
+  // var list = document.getElementById("list").value;
+  // list = JSON.parse(list);
+  //
+  // let data1=list['A+'];
+  // let data2=list['B+'];
+  // let data3=list['AB+'];
+  // let data4=list['O+'];
+  // let data5=list['A-'];
+  // let data6=list['B-'];
+  // let data7=list['AB-'];
+  // let data8=list['O-'];
 
 
   /*!**********************************************!*\
@@ -219,35 +219,35 @@
     series: [{
       name: 'A+',
       type: 'column',
-      data: [data1]
+      data: 122
     }, {
       name: 'B+',
       type: 'area',
-      data: [data2]
+      data: 123
     }, {
       name: 'AB+',
       type: 'line',
-      data: [data3]
+      data: 1234
     }, {
       name: 'O+',
       type: 'column',
-      data: [data4]
+      data: 123
     }, {
       name: 'A-',
       type: 'column',
-      data: [data5]
+      data: 1234
     }, {
       name: 'B-',
       type: 'area',
-      data: [data6]
+      data: 1322
     }, {
       name: 'AB-',
       type: 'line',
-      data: [data7]
+      data: 1212
     }, {
       name: 'O-',
       type: 'column',
-      data: [data8]
+      data: 222
     },],
     fill: {
       opacity: [0.85, 0.25, 1],
